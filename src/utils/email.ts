@@ -56,7 +56,7 @@ export const generatePasswordResetToken = (userId: string): string => {
 };
 
 export const sendPasswordResetEmail = async (email: string, token: string) => {
-  const resetLink = `${process.env.CLIENT_URL}/reset-password/${token}`;
+  const resetLink = `${process.env.CLIENT_URL}/auth/reset-password/${token}`;
 
   const mailOptions = {
     from: `"AiLearning" <${process.env.EMAIL_USER}>`,

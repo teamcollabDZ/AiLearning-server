@@ -203,7 +203,10 @@ export const resetPassword = async (req: Request, res: Response) => {
     user.password = await bcrypt.hash(newPassword, 10);
     await user.save();
 
-    res.json({ message: 'Password reset successful' });
+    res.json({
+      success: true,
+      message: 'Password reset successful',
+    });
   } catch (error) {
     if (error instanceof jwt.TokenExpiredError) {
       return res.status(401).json({ message: 'Reset link has expired' });
